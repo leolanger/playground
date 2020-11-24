@@ -21,7 +21,7 @@ h1 {
   text-shadow: 3px 3px 1px black;
 }
 
-p, li {
+p, li,dl,code,pre {
   font-size: 16px;
   line-height: 2;
   letter-spacing: 1px;

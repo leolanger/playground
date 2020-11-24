@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>测试页面</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="https://developer.cdn.mozilla.net/static/img/favicon144.a6e4162070f4.png">
+</head>
+
+<body>
+    <h1>Mozilla 酷毙了！</h1>
+
+    <h2 id="Mailing_address">邮寄地址</h2>
+
+    <a href="https://www.mozilla.org/zh-CN/">
+        <img src="images/firefox-icon.png" alt="Firefox 标志：一只盘旋在地球上的火狐">
+    </a>
+
+    <p>Mozilla 是一个全球社区，这里聚集着来自五湖四海的</p>
+
+    <ul>
+        <li>技术人员</li>
+        <li>思考者</li>
+        <li>建造者</li>
+    </ul>
+
+    <p>我们致力于让 Internet 保持活力，保持畅通，人人皆可贡献，人人皆可创造。我们坚信：开放平台的协作对于人的发展至关重要，也决定着我们共同的未来。</p>
+
+    <p>为了达成我们共同的理想，我们遵循一系列的价值观和理念，请参阅 <a href="https://www.mozilla.org/zh-CN/about/manifesto/">Mozilla 宣言</a>。</p>
+
+    <p><a href="https://www.mozilla.org/" title="The Mozilla homepage" target="_blank">Home</a></p>
+
+    <p>HTML 中用 &lt;p&gt; 来定义段落元素 &quot; &quot; &apos; &apos; &amp; </p>
+
+    <button>切换用户</button>
+
+    <!--斜体字、粗体字、下划线-->
+
+    <p>
+        红喉北蜂鸟（学名：<i>Archilocus colubris</i>）
+        是北美东部最常见的蜂鸟品种。
+    </p>
+
+    <!-- 舶来词 -->
+    <p>
+        菜单上有好多舶来词汇，比如 <i lang="uk-latn">vatrushka</i>（东欧乳酪面包）,
+        <i lang="id">nasi goreng</i>（印尼炒饭）以及<i lang="fr">soupe à l'oignon</i>（法式洋葱汤）。
+    </p>
+
+    <!-- 已知的错误书写 -->
+    <p>
+        总有一天我会改掉写<u style="text-decoration-line: underline; text-decoration-style: wavy;">措字</u>的毛病。
+    </p>
+
+    <!-- 在一组指令中突出显示关键字 -->
+    <ol>
+        <li>
+            <b>切</b>下两片面包，
+        </li>
+        <li>
+            在两片面包中间<b>夹入</b>一片西红柿和一片生菜叶。
+        </li>
+    </ol>
+
+    <p><a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=zh-CN"
+            download="firefox-latest-64bit-installer.exe">
+            下载最新的 Firefox 中文版 - Windows（64位）
+        </a></p>
+
+    <p><a href="mailto:nowhere@mozilla.org">向 nowhere 发邮件</a></p>
+
+    <p>要提供意见和建议，请将信件邮寄至 <a href="#Mailing_address">我们的地址</a>。</p>
+
+    <dl>
+        <dt>内心独白</dt>
+        <dd>戏剧中，某个角色对自己的内心活动或感受进行念白表演，这些台词只面向观众，而其他角色不会听到。</dd>
+        <dt>语言独白</dt>
+        <dd>戏剧中，某个角色把自己的想法直接进行念白表演，观众和其他角色都可以听到。</dd>
+        <dt>旁白</dt>
+        <dd>戏剧中，为渲染幽默或戏剧性效果而进行的场景之外的补充注释念白，只面向观众，内容一般都是角色的感受、想法、以及一些背景信息等。</dd>
+    </dl>
+
+    <p>According to the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+            <cite>MDN blockquote page</cite></a>:
+    </p>
+
+    <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote">
+        <p>The <strong>HTML <code>&lt;blockquote&gt;</code> Element</strong> (or <em>HTML Block
+                Quotation Element</em>) indicates that the enclosed text is an extended quotation.</p>
+    </blockquote>
+
+    <p>The quote element — <code>&lt;q&gt;</code> — is <q
+            cite="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">intended
+            for short quotations that don't require paragraph breaks.</q> -- <a
+            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q">
+            <cite>MDN q page</cite></a>.</p>
+
+    <p>我们使用 <abbr title="超文本标记语言（Hyper text Markup Language）">HTML</abbr> 来组织网页文档。</p>
+
+    <address>
+        <p>Page written by <a href="../authors/chris-mills/">Chris Mills</a>.</p>
+    </address>
+
+    <p>咖啡因的化学方程式是 C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>。</p>
+    <p>如果 x<sup>2</sup> 的值为 9，那么 x 的值必为 3 或 -3。</p>
+
+    <pre><code>const para = document.querySelector('p');
+
+para.onclick = function() {
+  alert('噢，噢，噢，别点我了。');
+}</code></pre>
+
+    <p>请不要使用 <code>&lt;font&gt;</code> 、 <code>&lt;center&gt;</code> 等表象元素。</p>
+
+    <p>在上述的 JavaScript 示例中，<var>para</var> 表示一个段落元素。</p>
+
+
+    <p>按 <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>A</kbd> 选择全部内容。</p>
+
+    <pre>$ <kbd>ping mozilla.org</kbd>
+<samp>PING mozilla.org (63.245.215.20): 56 data bytes
+64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms</samp></pre>
+
+    <script src="scripts/main.js" defer></script>
+</body>
+
+</html>
