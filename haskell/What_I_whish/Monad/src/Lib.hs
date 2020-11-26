@@ -3,6 +3,7 @@ module Lib
   )
 where
 
+import Data.Void
 import Prelude hiding (Monad, (>>=))
 
 {-Monad Methods-}
