@@ -114,7 +114,11 @@ type NetworkState1 =
     | NetworkSuccessState
     | NetworkFromCachedState;
 
-function logger1(s: NetworkState1) {
+function assertNever(x: never): never {
+    throw new Error("Unexpected object: " + x);
+}
+
+function logger1(s: NetworkState1): string {
     switch (s.state) {
         case "loading":
             return "loading request";
@@ -122,6 +126,8 @@ function logger1(s: NetworkState1) {
             return `failed with code ${s.code}`;
         case "success":
             return "got response";
+        default:
+            return assertNever(s);
     }
 }
 
