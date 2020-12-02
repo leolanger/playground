@@ -42,3 +42,39 @@ m >> k = m >>= \_ -> k
 -- and '(b -> m c)' respectively
 
 -- ((SomeMonad val) >>= f) >>= g ≡ (SomeMonad val) >>= (\x -> f x >>= g)
+
+{-Do Notation-}
+
+-- The desugaring is defined recursively by the rules:
+
+-- do { a <- f ; m } ≡ f >>= \a -> do { m } -- bind 'f' to a, proceed to desugar
+--                                          -- 'm'
+-- do { f ; m } ≡ f >> do { m }             -- evaluate 'f', then proceed to
+--                                          -- desugar m
+-- do { m } ≡ m
+
+-- Law 1
+
+-- do y <- return x
+--    f y
+-- = do f x
+
+-- Law 2
+
+-- do x <- m
+--   return x
+-- = do m
+
+-- Law 3
+
+-- do b <- do a <- m
+--     f a
+--     g b
+
+-- = do a <- m
+--     b <- f a
+--     g b
+
+-- = do a <- m
+--      do b <- f a
+--         g b
