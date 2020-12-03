@@ -1,5 +1,5 @@
 module Lib
-  (
+  ( Monad,
   )
 where
 
