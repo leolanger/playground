@@ -1,13 +1,13 @@
 module Maybe where
 
-import Prelude hiding (Monad, return, (>>=))
+import Prelude (Int, Maybe (Just, Nothing), ($), (+))
 
 class Monad m where
   return :: a -> m a
   (>>=) :: m a -> (a -> m b) -> m b
+  (>>) :: m a -> m b -> m b
 
-(>>) :: Monad m => m a -> m b -> m b
-m >> k = m >>= \_ -> k
+-- data Maybe a = Nothing | Just a deriving (Eq, Ord)
 
 {- Maybe Monad -}
 
@@ -15,6 +15,7 @@ instance Monad Maybe where
   (Just x) >>= k = k x -- 'k' is a function with type (a -> Maybe a)
   Nothing >>= k = Nothing
   return = Just
+  m >> k = m >>= \_ -> k
 
 -- eg.
 
