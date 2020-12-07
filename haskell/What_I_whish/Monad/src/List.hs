@@ -1,19 +1,8 @@
 module List where
 
-import Prelude hiding (Monad, return, (>>=))
-
-class Monad m where
-  return :: a -> m a
-  (>>=) :: m a -> (a -> m b) -> m b
-
-(>>) :: Monad m => m a -> m b -> m b
-m >> k = m >>= \_ -> k
+import Prelude (Int, Integer, Monad, return, (>>=))
 
 {- List Monad -}
-
-instance Monad [] where
-  m >>= f = concat (map f m)
-  return x = [x]
 
 m :: [Int]
 m = [1, 2, 3, 4]
@@ -54,3 +43,9 @@ desugared =
         return (a, b, c)
 
 -- [(1,10,100),(1,10,200),(1,20,100),(1,20,200),(2,10,100),(2,10,200),(2,20,100),(2,20,200)]
+
+mcons :: Monad m => m t -> m [t] -> m [t]
+mcons p q = do
+  x <- p
+  y <- q
+  return (x : y)

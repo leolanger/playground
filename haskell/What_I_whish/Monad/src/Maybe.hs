@@ -7,7 +7,7 @@ class Monad m where
   (>>=) :: m a -> (a -> m b) -> m b
   (>>) :: m a -> m b -> m b
 
--- data Maybe a = Nothing | Just a deriving (Eq, Ord)
+-- data Maybe a = Nothing | Just a
 
 {- Maybe Monad -}
 
@@ -59,3 +59,4 @@ desugard2 =
       return $ a + b
 
 -- Nothing
+
