@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c424105d836f712212ebd5fbd59a453c483cbd9c1087db185670223330f42c92
+-- hash: 504690b2380d0fda3d00d820d08666f2a601b07576119c3465b9dcc9f3db4440
 
 name:           Monad
 version:        0.1.0.0
@@ -32,6 +32,8 @@ library
       IO
       List
       Maybe
+      Reader
+      Writer
       Paths_Monad
   hs-source-dirs:
       src
