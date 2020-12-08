@@ -1,7 +1,5 @@
 module Writer where
 
-import Data.Monoid
-
 newtype Writer w a = Writer {runWriter :: (a, w)}
 
 type MyWriter = Writer [Int] String
@@ -20,6 +18,11 @@ instance Functor (Writer w) where
 
 instance Monoid w => Applicative (Writer w) where
   pure a = Writer (a, mempty)
+  wf <*> m =
+    Writer $
+      let (f, w) = runWriter wf
+          (a, w') = runWriter m
+       in (f a, w `mappend` w')
 
 instance Monoid w => Monad (Writer w) where
   return a = Writer (a, mempty)
