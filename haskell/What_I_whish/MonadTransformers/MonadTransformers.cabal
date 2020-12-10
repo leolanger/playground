@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9cfa536dca2f27d346db3160532eaebb63668c2f1d8d7cec24cca6b5383825c5
+-- hash: 723783636b5dcdb0dccab92ce63af81aaf2d3e20e1c36b59708aa5eeb2220566
 
 name:           MonadTransformers
 version:        0.1.0.0
@@ -28,6 +28,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      ReaderT'
   other-modules:
       Paths_MonadTransformers
   hs-source-dirs:
