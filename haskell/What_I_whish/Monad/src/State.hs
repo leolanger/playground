@@ -22,3 +22,18 @@ instance Monad (State s) where
   State act >>= k = State $ \s ->
     let (a, s1) = act s
      in runState (k a) s1
+
+get :: State s s
+get = State $ \s -> (s, s)
+
+put :: s -> State s ()
+put s = State $ \_ -> ((), s)
+
+modify :: (s -> s) -> State s ()
+modify f = get >>= \x -> put (f x)
+
+evalState :: State s a -> s -> a
+evalState act = fst . runState act
+
+execState :: State s a -> s -> s
+execState act = snd . runState act
