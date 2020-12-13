@@ -5,9 +5,21 @@ module Lib
   )
 where
 
-import Control.Monad.Reader hiding (MonadIO)
-import Control.Monad.State hiding (MonadIO)
-import Control.Monad.Writer hiding (MonadIO)
+import Control.Monad.Morph
+import Control.Monad.Reader
+  ( MonadReader (ask, local),
+    MonadTrans (lift),
+    ReaderT (..),
+  )
+import Control.Monad.State
+  ( MonadState,
+    State,
+    StateT,
+    evalState,
+    gets,
+    modify,
+  )
+import Control.Monad.Writer
 
 {- mtl/transformers -}
 
@@ -35,11 +47,11 @@ class MonadTrans t where
 -- describe composing one monad with another monad
 -- (the “t” is the transformed second monad)
 
-class (Monad m) => MonadIO m where
-  liftIO :: IO a -> m a
+-- class (Monad m) => MonadIO m where
+--   liftIO :: IO a -> m a
 
-instance MonadIO IO where
-  liftIO = id
+-- instance MonadIO IO where
+--   liftIO = id
 
 {- Basics -}
 
@@ -193,3 +205,62 @@ extractB (MKB x) = x
 -- forever (lift m)    == lift (forever m)
 -- mapM_ (lift . f) xs == lift (mapM_ f xs)
 -- forM_ xs (lift . f) == lift (forM_ xs f)
+
+{- Monad Morphisms -}
+
+-- The mmorph library provides the capacity to compose
+-- monad morphism transformation directly on transformer stacks.
+
+-- hoist :: Monad m => (forall a. m a -> n a) -> t m b -> t n b
+
+-- The monad morphism generalize takes an Identity monad into any another monad m .
+
+-- generalize :: MOnad m => Identity a -> m a
+
+type Eval' a = State [Int] a
+
+runEval' :: [Int] -> Eval' a -> a
+runEval' = flip evalState
+
+pop :: Eval' Int
+pop = do
+  top <- gets head
+  modify tail
+  return top
+
+push :: Int -> Eval' ()
+push x = modify (x :)
+
+ev1 :: Eval' Int
+ev1 = do
+  push 3
+  push 4
+  pop
+  pop
+
+ev2 :: StateT [Int] IO ()
+ev2 = do
+  result <- hoist generalize ev1
+  liftIO $ putStrLn $ "Result: " ++ show result
+
+{- Effect Systems -}
+
+-- Extensibility
+
+-- instance MonadReader r m => MonadReader r (ExceptT e m) where
+--   ask = lift ask
+--   local = mapExceptT . local
+--   reader = lift . reader
+
+-- instance MonadReader r m => MonadReader r (IdentityT m) where
+--   ask = lift ask
+--   local = mapIdentityT . local
+--   reader = lift . reader
+
+-- Composing TRansformers
+
+-- stateExcept :: StateT s (Except e) a -> s -> Either e (a, s)
+-- stateExcept m s = runExcept (runStateT m s)
+
+-- exceptState :: ExceptT e (State s) a -> s -> (Either e a, s)
+-- exceptState m s = runState (runExceptT m) s

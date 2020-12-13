@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 723783636b5dcdb0dccab92ce63af81aaf2d3e20e1c36b59708aa5eeb2220566
+-- hash: f43b557b482b05e9bfc3ca562d22c9405fc1acf9d4785053fda85a10769399ab
 
 name:           MonadTransformers
 version:        0.1.0.0
@@ -27,7 +27,9 @@ source-repository head
 
 library
   exposed-modules:
+      FusedEffects
       Lib
+      Polysemy'
       ReaderT'
   other-modules:
       Paths_MonadTransformers
@@ -35,7 +37,10 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , fused-effects
+    , mmorph
     , mtl
+    , polysemy
   default-language: Haskell2010
 
 executable MonadTransformers-exe
@@ -48,7 +53,10 @@ executable MonadTransformers-exe
   build-depends:
       MonadTransformers
     , base >=4.7 && <5
+    , fused-effects
+    , mmorph
     , mtl
+    , polysemy
   default-language: Haskell2010
 
 test-suite MonadTransformers-test
@@ -62,5 +70,8 @@ test-suite MonadTransformers-test
   build-depends:
       MonadTransformers
     , base >=4.7 && <5
+    , fused-effects
+    , mmorph
     , mtl
+    , polysemy
   default-language: Haskell2010
