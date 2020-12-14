@@ -110,9 +110,8 @@ export const Board = () => {
           <img className={styles.appIcon} src={appIcon} alt="App Icon"></img>
           <div className={styles.nodeOptions}>
             <button
-              className={`${styles.optionButtons} ${
-                options.drawNode && styles.selectedButtonOption
-              }`}
+              className={`${styles.optionButtons} ${options.drawNode && styles.selectedButtonOption
+                }`}
               onClick={() => activateOption("drawNode")}
               disabled={isVisualizing}
             >
@@ -120,9 +119,8 @@ export const Board = () => {
               Draw Node
             </button>
             <button
-              className={`${styles.optionButtons} ${
-                options.moveNode && styles.selectedButtonOption
-              }`}
+              className={`${styles.optionButtons} ${options.moveNode && styles.selectedButtonOption
+                }`}
               onClick={() => activateOption("moveNode")}
               disabled={isVisualizing}
             >
@@ -130,9 +128,8 @@ export const Board = () => {
               Move Node
             </button>
             <button
-              className={`${styles.optionButtons} ${
-                options.deleteNode && styles.selectedButtonOption
-              }`}
+              className={`${styles.optionButtons} ${options.deleteNode && styles.selectedButtonOption
+                }`}
               onClick={() => activateOption("deleteNode")}
               disabled={isVisualizing}
             >
@@ -142,9 +139,8 @@ export const Board = () => {
           </div>
           <div className={styles.edgeOptions}>
             <Dropdown
-              className={`${styles.dropdownWrapper} ${
-                selectedEdge?.key !== "select" && styles.selectedDropdownOption
-              }`}
+              className={`${styles.dropdownWrapper} ${selectedEdge?.key !== "select" && styles.selectedDropdownOption
+                }`}
               options={edgeOptions}
               styles={optionButtonStyles.edgeDropdown}
               placeholder="Select Edge"
@@ -153,9 +149,8 @@ export const Board = () => {
               disabled={isVisualizing}
             />
             <button
-              className={`${styles.optionButtons} ${
-                options.editEdge && styles.selectedButtonOption
-              }`}
+              className={`${styles.optionButtons} ${options.editEdge && styles.selectedButtonOption
+                }`}
               onClick={() => activateOption("editEdge")}
               disabled={isVisualizing}
             >
@@ -163,9 +158,8 @@ export const Board = () => {
               Edit Edge
             </button>
             <button
-              className={`${styles.optionButtons} ${
-                options.deleteEdge && styles.selectedButtonOption
-              }`}
+              className={`${styles.optionButtons} ${options.deleteEdge && styles.selectedButtonOption
+                }`}
               onClick={() => activateOption("deleteEdge")}
               disabled={isVisualizing}
             >
@@ -175,9 +169,8 @@ export const Board = () => {
           </div>
           <div className={styles.visualizeControls}>
             <Dropdown
-              className={`${styles.dropdownWrapper} ${
-                selectedAlgo?.key !== "select" && styles.selectedDropdownOption
-              }`}
+              className={`${styles.dropdownWrapper} ${selectedAlgo?.key !== "select" && styles.selectedDropdownOption
+                }`}
               options={algoOptions}
               styles={optionButtonStyles.algoDropdown}
               placeholder="Select Algorithm"
@@ -199,9 +192,8 @@ export const Board = () => {
           </div>
           <div className={styles.miscellaneous}>
             <button
-              className={`${styles.optionButtons} ${
-                options.reset && styles.selectedButtonOption
-              }`}
+              className={`${styles.optionButtons} ${options.reset && styles.selectedButtonOption
+                }`}
               onClick={() => activateOption("reset")}
               disabled={isVisualizing}
             >
@@ -215,8 +207,8 @@ export const Board = () => {
           {isVisualizing ? (
             <ProgressIndicator styles={{ itemProgress: { padding: "0" } }} />
           ) : (
-            <hr />
-          )}
+              <hr />
+            )}
         </div>
         <div className={styles.graphContainer}>
           <Graph
@@ -238,12 +230,6 @@ export const Board = () => {
                   : { transform: "rotate(45deg" }
               }
             ></div>
-          </div>
-          <div className={styles.madeInIndia}>
-            <span>
-              Made with <span style={{ color: "#e74c3c" }}>&hearts;</span> in
-              India
-            </span>
           </div>
         </div>
       </div>

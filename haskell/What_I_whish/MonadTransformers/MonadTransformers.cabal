@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f43b557b482b05e9bfc3ca562d22c9405fc1acf9d4785053fda85a10769399ab
+-- hash: 8f06a654beaaa3cacbe089b013a568714d4db3e2e2af99ba6290b6ec4bb3dc48
 
 name:           MonadTransformers
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Free
       FusedEffects
       Lib
       Polysemy'
