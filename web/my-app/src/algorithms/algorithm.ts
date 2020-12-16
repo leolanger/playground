@@ -7,6 +7,8 @@ export interface IPathFinding {
   visitedEdges: IEdge[];
   shortestPath: IEdge[];
 }
+export let bfsLog: number[] = [];
+
 export const bfs = (
   edges: Map<number, IEdge[] | undefined>,
   startNodeId: number
@@ -28,11 +30,13 @@ export const bfs = (
   };
   const visitedSet = new Set<number>();
   bfsQueue.push(mockEdge);
+  bfsLog.push(startNodeId);  //
   let newEdges = new Map(edges);
   while (!bfsQueue.isEmpty()) {
     let lastVisitedEdge = bfsQueue.front();
     let nodeId = parseInt(lastVisitedEdge!.to);
     bfsQueue.pop();
+    bfsLog.push(-nodeId);  //
     if (!visitedSet.has(nodeId)) {
       visitedEdges.push({
         ...mockEdge,
@@ -46,11 +50,14 @@ export const bfs = (
           from: nodeId.toString(),
           to: id.toString(),
         });
+        bfsLog.push(id);  //
       });
     }
   }
   return visitedEdges;
 };
+
+export let dfsLog: number[] = [];
 
 export const dfs = (
   edges: Map<number, IEdge[] | undefined>,
@@ -71,6 +78,7 @@ export const dfs = (
     isUsedInTraversal: false,
   };
   dfsStack.push(mockEdge);
+  dfsLog.push(startNodeId);
   const visitedSet = new Set<number>();
   const visitedEdges: IEdge[] = [];
   let newEdges = new Map(edges);
@@ -78,6 +86,7 @@ export const dfs = (
     let lastVisitedEdge = dfsStack.top();
     let nodeId = parseInt(lastVisitedEdge!.to);
     dfsStack.pop();
+    dfsLog.push(-nodeId);
     if (!visitedSet.has(parseInt(lastVisitedEdge!.to))) {
       visitedEdges.push({
         ...mockEdge,
@@ -92,11 +101,14 @@ export const dfs = (
           from: nodeId.toString(),
           to: id.toString(),
         });
+        dfsLog.push(id);
       });
     }
   }
   return visitedEdges;
 };
+
+export let dijkstraLog: number[] = [];
 
 export const dijkstra = (
   edges: Map<number, IEdge[] | undefined>,
@@ -124,6 +136,7 @@ export const dijkstra = (
   let unvisitedSet = new Set<number>();
   let visitedEdges: IEdge[] = [];
   distance.set(mockEdge, 0);
+  dijkstraLog.push(startNodeId);
   newEdges.forEach((edges: IEdge[] | undefined, nodeId: number) => {
     edges?.forEach((edge: IEdge) => {
       distance.set(edge, Infinity);
@@ -145,6 +158,7 @@ export const dijkstra = (
     }
     currentNodeId = parseInt(currentEdge.to);
     visitedEdges.push(currentEdge);
+    dijkstraLog.push(currentNodeId);
     unvisitedSet.delete(currentNodeId);
     if (currentNodeId === endNodeId) {
       return {
@@ -249,6 +263,8 @@ const findNeighbours = (
   }
   return [];
 };
+
+export let minspantreeprimsLog: number[] = [];
 
 export const minspantreeprims = (
   edges: Map<number, IEdge[] | undefined>,

@@ -13,6 +13,7 @@ import { optionButtonStyles, sliderOptions } from "./BoardStyles";
 import appIcon from "../../images/graphisual.svg";
 import { IOptions } from "./IBoard";
 import { INodeSelection } from "../Graph/IGraph";
+import { bfsLog, dfsLog } from "../../algorithms/algorithm";
 
 export const Board = () => {
   const [options, setOptions] = useState<IOptions>({
@@ -100,6 +101,12 @@ export const Board = () => {
   const handlePullDownMenu = () => {
     setPullDownMenuState(!isPullDownMenuOpen);
   };
+  const debug = () => {
+    console.log(bfsLog);
+
+    console.log(dfsLog);
+
+  }
   return (
     <>
       <div className={styles.board}>
@@ -230,6 +237,11 @@ export const Board = () => {
                   : { transform: "rotate(45deg" }
               }
             ></div>
+          </div>
+          <div className={styles.name}>
+            <div onClick={debug}>
+              Algorithm Visualizer
+            </div>
           </div>
         </div>
       </div>

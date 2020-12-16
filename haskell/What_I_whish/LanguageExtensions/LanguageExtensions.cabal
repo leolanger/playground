@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7e8c16497e0cefb04aae813d935edc750dac4eed188de783db0a4838b963bacb
+-- hash: 2dbdfa7ab92ed744bcce812bff3fb318028ec352186b2cb3e9e3989ae766f59c
 
 name:           LanguageExtensions
 version:        0.1.0.0
@@ -28,11 +28,15 @@ source-repository head
 library
   exposed-modules:
       Extension1
+      Extension10
       Extension2
       Extension3
       Extension4
       Extension5
       Extension6
+      Extension7
+      Extension8
+      Extension9
       Lib
   other-modules:
       Paths_LanguageExtensions

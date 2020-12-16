@@ -66,7 +66,7 @@ data Exp a
   | Var a
   | App (Exp a) (Exp a)
 
-example' :: Exp a -> b
+example' :: Exp a -> a
 example' = \case
   Lam a b -> a
   Var a -> a
