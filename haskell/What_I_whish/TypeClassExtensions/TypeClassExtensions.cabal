@@ -4,13 +4,13 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6430855dc8b63117d6b53c4a5f68161320f87f8763269c8318fbbe4113ce3274
+-- hash: 1b1a9bc63c0389d199ea280ce45784f0257896869ad3d0458f4c4bef36fb6b53
 
-name:           LanguageExtensions
+name:           TypeClassExtensions
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/LanguageExtensions#readme>
-homepage:       https://github.com/githubuser/LanguageExtensions#readme
-bug-reports:    https://github.com/githubuser/LanguageExtensions/issues
+description:    Please see the README on GitHub at <https://github.com/githubuser/TypeClassExtensions#readme>
+homepage:       https://github.com/githubuser/TypeClassExtensions#readme
+bug-reports:    https://github.com/githubuser/TypeClassExtensions/issues
 author:         Author name here
 maintainer:     example@example.com
 copyright:      2020 Author name here
@@ -23,57 +23,40 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/LanguageExtensions
+  location: https://github.com/githubuser/TypeClassExtensions
 
 library
   exposed-modules:
-      Extension1
-      Extension10
-      Extension11
-      Extension2
-      Extension3
-      Extension4
-      Extension5
-      Extension6
-      Extension7
-      Extension8
-      Extension9
       Lib
   other-modules:
-      Paths_LanguageExtensions
+      Paths_TypeClassExtensions
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
-    , safe
-    , text
   default-language: Haskell2010
 
-executable LanguageExtensions-exe
+executable TypeClassExtensions-exe
   main-is: Main.hs
   other-modules:
-      Paths_LanguageExtensions
+      Paths_TypeClassExtensions
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      LanguageExtensions
+      TypeClassExtensions
     , base >=4.7 && <5
-    , safe
-    , text
   default-language: Haskell2010
 
-test-suite LanguageExtensions-test
+test-suite TypeClassExtensions-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Paths_LanguageExtensions
+      Paths_TypeClassExtensions
   hs-source-dirs:
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      LanguageExtensions
+      TypeClassExtensions
     , base >=4.7 && <5
-    , safe
-    , text
   default-language: Haskell2010

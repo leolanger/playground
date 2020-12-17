@@ -113,6 +113,9 @@ class MinimalClass a where
 data Example = Example
   deriving (MinimalClass)
 
+-- The deriving logic generates an instance declaration for the type
+-- with no explicitly­defined methods or with all instances having a specific default implementation given.
+
 main :: IO ()
 main = do
   print (const1 Example)
