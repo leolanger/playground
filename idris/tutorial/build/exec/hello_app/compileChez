@@ -1,1 +1,0 @@
-(parameterize ([optimize-level 3] [compile-file-message #f]) (compile-program "/home/leolanger/projects/playground/idris/tutorial/build/exec/hello_app/hello.ss"))
