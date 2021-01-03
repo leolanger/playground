@@ -1,11 +1,5 @@
 import Data.Vect
 
-addMatrix : Num numType => Vect rows (Vect cols numType) -> Vect rows (Vect cols numType) -> Vect rows (Vect cols numType) 
-addMatrix xs ys = ?addMatrix_rhs
-
-multMatrix : Num numType => Vect n (Vect m numType) -> Vect m (Vect p numType) -> Vect n (Vect p numType)
-multMatrix xs ys = ?multMatrix_rhs
-
 createEmpties : Vect n (Vect 0 elem)
 createEmpties = replicate _ []
 
