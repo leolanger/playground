@@ -1,0 +1,17 @@
+ns="MyNamespace"
+package="MyApp"
+version="0.0.1"
+
+description=""
+link=""
+readme=""
+modules=["MyApp"]
+depends=["idris2", "contrib"]
+license=""
+main="MyApp"
+executable="MyApp"
+
+[deps]
+
+[dev-deps]
+Base.IdrTest="~0.0.1"
