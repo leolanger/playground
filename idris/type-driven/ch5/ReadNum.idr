@@ -28,3 +28,9 @@ usePair = do
     (str1, str2) <- readPair
     putStrLn ("YOu entered " ++ str1 ++ " and" ++ str2)
 
+readNumbers' : IO (Maybe (Nat, Nat))
+readNumbers' = do 
+    Just num1_ok <- readNumber | Nothing => pure Nothing 
+    Just num2_ok <- readNumber | Nothing => pure Nothing 
+    pure (Just (num1_ok, num2_ok))
+
