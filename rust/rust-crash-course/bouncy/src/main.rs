@@ -1,7 +1,4 @@
-use std::{
-    fmt::{Display, Formatter},
-    write,
-};
+use std::fmt::{Display, Formatter};
 
 enum VertDir {
     Up,
@@ -21,8 +18,8 @@ struct Ball {
 }
 
 struct Frame {
-    height: u32,
     width: u32,
+    height: u32,
 }
 
 struct Game {
@@ -48,6 +45,33 @@ impl Game {
     fn step(&mut self) {
         self.ball.bounce(&self.frame);
         self.ball.mv();
+    }
+}
+
+impl Ball {
+    fn bounce(&mut self, frame: &Frame) {
+        if self.x == 0 {
+            self.horiz_dir = HorizDir::Right;
+        } else if self.x == frame.width - 1 {
+            self.horiz_dir = HorizDir::Left;
+        }
+
+        if self.y == 0 {
+            self.vert_dir = VertDir::Down;
+        } else if self.y == frame.height - 1 {
+            self.vert_dir = VertDir::Up;
+        }
+    }
+
+    fn mv(&mut self) {
+        match self.horiz_dir {
+            HorizDir::Left => self.x -= 1,
+            HorizDir::Right => self.x += 1,
+        }
+        match self.vert_dir {
+            VertDir::Up => self.y -= 1,
+            VertDir::Down => self.y += 1,
+        }
     }
 }
 
@@ -79,33 +103,6 @@ impl Display for Game {
         }
 
         top_bottom(fmt)
-    }
-}
-
-impl Ball {
-    fn bounce(&mut self, frame: &Frame) {
-        if self.x == 0 {
-            self.horiz_dir = HorizDir::Right;
-        } else if self.x == frame.width - 1 {
-            self.horiz_dir = HorizDir::Left;
-        }
-
-        if self.y == 0 {
-            self.vert_dir = VertDir::Down;
-        } else if self.y == frame.height - 1 {
-            self.vert_dir = VertDir::Up;
-        }
-    }
-
-    fn mv(&mut self) {
-        match self.horiz_dir {
-            HorizDir::Left => self.x -= 1,
-            HorizDir::Right => self.x += 1,
-        }
-        match self.vert_dir {
-            VertDir::Up => self.y -= 1,
-            VertDir::Down => self.y += 1,
-        }
     }
 }
 
